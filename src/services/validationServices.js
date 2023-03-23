@@ -12,7 +12,7 @@ async function validateMatrix(letters = []) {
     }
 
     if (err !== "") {
-        err = `Sequence contains errors. Wrong sequences:${err}`
+        err = `Sequence contains errors. Check if you type the right length of strings and the right amount of strings. Ex: 4x4 ; 5x5 ; 6x6... Wrong sequences:${err}`
     }
 
     return err;
