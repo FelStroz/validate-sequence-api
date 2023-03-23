@@ -6,7 +6,7 @@ module.exports = {
     create: async (req, res) => {
         let {sequence, isValid} = req.body;
         let sequenceScheme = new Api({sequence, isValid});
-        sequenceScheme.save().then(() => {
+        await sequenceScheme.save().then(() => {
             return views.created({isValid}, "Created", res);
         }).catch((e) => views.error(e, 400, "error", res));
     },
