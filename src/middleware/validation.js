@@ -137,3 +137,9 @@ function checkSequence(sequence) {
     }
     return false;
 }
+
+module.exports = {
+    validateMatrix,
+    validateSequence,
+    checkSequence
+}
