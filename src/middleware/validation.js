@@ -1,16 +1,17 @@
+let validCombinations = 0;
 module.exports = async (req, res, next) => {
     let {letters} = req.body;
-    let err = validateMatrix(letters);
+    let err = await validateMatrix(letters);
 
-    if (err === "") return res.status(401).json({message: err});
+    if (err !== "") return res.status(400).json({error: err});
+    
+    const isValid = await validateSequence(letters);
 
-    const isValid = validateSequence(letters);
-
-    req.body = {letters, isValid};
+    req.body = {sequence: letters, isValid};
     next()
 }
 
-function validateMatrix(letters = []) {
+async function validateMatrix(letters = []) {
     let err = "";
     const regex = /^[BUDH]+$/;
 
@@ -29,7 +30,8 @@ function validateMatrix(letters = []) {
     return err;
 }
 
-function validateSequence(letters = []) {
+async function validateSequence(letters = []) {
+    validCombinations = 0;
     const matrix = [];
 
     // Creating the matrix
@@ -117,7 +119,7 @@ function getDiagonals(matrix) {
 function checkSequence(sequence) {
     let prevLetter = '';
     let count = 0;
-    let validCombinations = 0;
+    
 
     for (let i = 0; i < sequence.length; i++) {
         if (sequence[i] === prevLetter) {
@@ -125,7 +127,6 @@ function checkSequence(sequence) {
             if (count === 3) {
                 validCombinations++;
                 if (validCombinations === 2) {
-                    console.log("sequence: " + sequence)
                     return true;
                 }
             }
