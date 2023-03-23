@@ -1,3 +1,5 @@
+<div hidden="hidden"><h1>TOP</h1></div>
+
 <div align="center">
 <h1>Validate Sequence Api</h1>
 </div>
@@ -138,4 +140,4 @@ And it's running!
 
 Made by [Felipe Strozberg](www.github.com/FelStroz)
 
-[🔼 Back to top](#Instalation)
+[🔼 Back to top](#TOP)
