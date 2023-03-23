@@ -138,6 +138,6 @@ And it's running!
     ```
 ---
 
-Made by [Felipe Strozberg](www.github.com/FelStroz)
+Made by <a href="www.github.com/FelStroz" target="_blank">Felipe Strozberg</a>
 
 [🔼 Back to top](#TOP)
